@@ -27,20 +27,18 @@ public class Utakmica {
 
     @Override
     public String toString() {
-
-
         var utakmicaNaslov = String.format("%s vs %s %s : %s\n", domacin, gost, rezultatDomacin, rezultatGost);
         var utakmicaTrenerDomacin = String.format("Trener domacin: \n\t%s\n", domacin.getTrener());
         var strijelci1String = strijelciToString(strijelciDomaci, "domacin");
         var utakmicaTrenerGostiju = String.format("Trener gostiju: \n\t%s\n", gost.getTrener());
-        var strijelci2String = strijelciToString(strijelciDomaci, "gost");
+        var strijelci2String = strijelciToString(strijelciGost, "gost");
         return utakmicaNaslov+utakmicaTrenerDomacin+strijelci1String+utakmicaTrenerGostiju+strijelci2String+"--------------------";
     }
 
 
     private String strijelciToString(List<Igrac> igraci, String ciji) {
         StringBuilder strijelciString = new StringBuilder(String.format("Strijelci %s:\n",ciji));
-        for (Igrac igrac : strijelciDomaci) {
+        for (Igrac igrac : igraci) {
             strijelciString.append(igrac).append("\n");
         }
         strijelciString.append("\n");
